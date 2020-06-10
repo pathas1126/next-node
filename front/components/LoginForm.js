@@ -1,6 +1,11 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
+import styled from "styled-components";
+
+const ButtonWrapper = styled.div`
+  margin-top: 10px;
+`;
 
 const LoginForm = () => {
   const [id, setId] = useState("");
@@ -16,6 +21,10 @@ const LoginForm = () => {
     const { value } = e.target;
     setPassword(value);
   }, []);
+
+  // styled-components 가 싫다면 useMemo를 통해서 값을 캐싱
+  // const style = useMemo(() => ({ marginTop: 10 }), []);
+  // 리렌더링해도 같은 객체가 유지됨
 
   return (
     <Form>
@@ -33,7 +42,9 @@ const LoginForm = () => {
           onChange={onChangePassword}
         />
       </div>
-      <div>
+      {/* style을 인라인으로 작성하게 되면 {} !== {} 이기 때문에 불필요한 리렌더링 발생!!!
+      객체는 새로 생성될 때마다 서로 다른 것으로 취급됨 => 성능이 아주 중요할 때가 아니면 집착할 필요는 없음 */}
+      <ButtonWrapper style={{ marginTop: 10 }}>
         <Button type="primary" htmlType="submit" loading={false}>
           로그인
         </Button>
@@ -42,7 +53,7 @@ const LoginForm = () => {
             <Button>회원가입</Button>
           </a>
         </Link>
-      </div>
+      </ButtonWrapper>
     </Form>
   );
 };
