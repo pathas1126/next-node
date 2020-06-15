@@ -1,13 +1,22 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback } from "react";
 import { Form, Input, Button } from "antd";
 import Link from "next/link";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
-const LoginForm = () => {
+const FormWrapper = styled(Form)`
+  padding: 10px;
+`;
+
+LoginForm.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
+};
+
+const LoginForm = ({ setIsLoggedIn }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -26,8 +35,15 @@ const LoginForm = () => {
   // const style = useMemo(() => ({ marginTop: 10 }), []);
   // 리렌더링해도 같은 객체가 유지됨
 
+  const onSubmitForm = useCallback(() => {
+    /* onFinish:  e.preventDefault 가 적용되어 있음
+      앤트디자인에서는 따로 작성하지 않음*/
+    console.log(id, password);
+    setIsLoggedIn(true);
+  }, [id, password]);
+
   return (
-    <Form>
+    <FormWrapper onFinish={onSubmitForm}>
       <div>
         <label htmlFor="user-id">아이디</label>
         <br />
@@ -54,7 +70,7 @@ const LoginForm = () => {
           </a>
         </Link>
       </ButtonWrapper>
-    </Form>
+    </FormWrapper>
   );
 };
 
