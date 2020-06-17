@@ -2,10 +2,6 @@ import React, { useCallback } from "react";
 import { Card, Avatar, Button } from "antd";
 import PropTypes from "prop-types";
 
-UserProfile.propTypes = {
-  setIsLoggedIn: PropTypes.func.isRequired,
-};
-
 const UserProfile = ({ setIsLoggedIn }) => {
   const onLogOut = useCallback(() => {
     setIsLoggedIn(false);
@@ -30,6 +26,10 @@ const UserProfile = ({ setIsLoggedIn }) => {
       <Button onClick={onLogOut}>로그아웃</Button>
     </Card>
   );
+};
+
+UserProfile.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
 };
 
 export default UserProfile;

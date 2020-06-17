@@ -12,10 +12,6 @@ const FormWrapper = styled(Form)`
   padding: 10px;
 `;
 
-LoginForm.propTypes = {
-  setIsLoggedIn: PropTypes.func.isRequired,
-};
-
 const LoginForm = ({ setIsLoggedIn }) => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -72,6 +68,10 @@ const LoginForm = ({ setIsLoggedIn }) => {
       </ButtonWrapper>
     </FormWrapper>
   );
+};
+
+LoginForm.propTypes = {
+  setIsLoggedIn: PropTypes.func.isRequired,
 };
 
 export default LoginForm;
