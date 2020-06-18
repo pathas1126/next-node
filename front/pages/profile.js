@@ -7,7 +7,7 @@ import FollowList from "../components/FollowList";
 const Profile = () => {
   const [followingList, setFollowingList] = useState([
     { nickname: "pathas" },
-    { nickname: "pathas11" },
+    { nickname: "pathas11" },~~
     { nickname: "pathas27" },
   ]);
   const [followerList, setFollowerList] = useState([
