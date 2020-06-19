@@ -3,8 +3,10 @@ import { Form, Input, Button } from "antd";
 import Link from "next/link";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { loginAction } from "../reducers";
+import { loginAction } from "../reducers/user";
 
+// 서버 사이드 렌더링 시에는 스타일드 컴포넌트가 적용되지 않기 떄문에
+// 따로 설정을 해주어야 함
 const ButtonWrapper = styled.div`
   margin-top: 10px;
 `;
