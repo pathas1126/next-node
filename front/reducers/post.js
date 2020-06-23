@@ -22,13 +22,13 @@ export const initialState = {
       // Sequelize는 정보간에 관계가 있는 경우 그것들을 합쳐주는데, 이때 반환되는 키는 첫글자가 대문자로 됨
       Images: [
         {
-          src: "https://picsum.photos/200/300",
+          src: "https://picsum.photos/id/25/700/1080",
         },
         {
-          src: "https://picsum.photos/200/300",
+          src: "https://picsum.photos/id/22/700/1080",
         },
         {
-          src: "https://picsum.photos/200/300",
+          src: "https://picsum.photos/id/87/700/1080",
         },
       ],
       Comments: [
